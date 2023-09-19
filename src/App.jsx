@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './Layout';
 import Home from './Home';
 import NoPage from './NoPage';
-
+import Question from "./question"; 
 function App() {
   const [input, setInput] = useState("")
 
@@ -22,9 +22,12 @@ function App() {
             <Route index element={<Home />} />
             <Route path="counter" element={<Counter />} />
             <Route path="*" element={<NoPage />} />
+            <Route path="question" element={<Question />} />
+
          </Route>
         </Routes>
      </BrowserRouter>
+     
       
     </div>
   )

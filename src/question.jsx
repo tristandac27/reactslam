@@ -40,28 +40,33 @@ function Question() {
     };
 
     return (
-        <div className="Question-container">
-            {showScore ? (
-                <div className="score-section">
-                    Vous avez obtenu {score} sur {questions.length} points !
-                </div>
-            ) : (
-                <>
-                    <div className="question-section">
-                        <div className="question-count">
-                            Question {currentQuestionIndex + 1} sur {questions.length}
+        <div className=" flex items-center justify-center bg-gray-100">
+            <div className="bg-white p-8 rounded shadow-md w-96">
+                {showScore ? (
+                    <div className="text-center">
+                        <p className="text-2xl font-semibold mb-4">Résultat</p>
+                        <p className="text-xl mb-4">Vous avez obtenu {score} sur {questions.length} points !</p>
+                    </div>
+                ) : (
+                    <>
+                        <div className="text-center mb-4">
+                            <p className="text-xl font-semibold">Question {currentQuestionIndex + 1} sur {questions.length}</p>
+                            <p className="text-lg mt-2">{questions[currentQuestionIndex].question}</p>
                         </div>
-                        <div className="question-text">{questions[currentQuestionIndex].question}</div>
-                    </div>
-                    <div className="answer-section">
-                        {questions[currentQuestionIndex].options.map((option, index) => (
-                            <button key={index} onClick={() => handleAnswerClick(option)}>
-                                {option}
-                            </button>
-                        ))}
-                    </div>
-                </>
-            )}
+                        <div className="grid grid-cols-2 gap-4">
+                            {questions[currentQuestionIndex].options.map((option, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleAnswerClick(option)}
+                                    className="bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-600 transition duration-300"
+                                >
+                                    {option}
+                                </button>
+                            ))}
+                        </div>
+                    </>
+                )}
+            </div>
         </div>
     );
 }

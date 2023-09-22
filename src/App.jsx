@@ -6,6 +6,7 @@ import Layout from './Layout';
 import Home from './Home';
 import NoPage from './NoPage';
 import Question from "./question"; 
+import ProductList from './shop';
 function App() {
   const [input, setInput] = useState("")
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="counter" element={<Counter />} />
             <Route path="*" element={<NoPage />} />
             <Route path="question" element={<Question />} />
+            <Route path="shop" element={<ProductList />} />
 
          </Route>
         </Routes>
